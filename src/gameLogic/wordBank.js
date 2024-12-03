@@ -1,6 +1,7 @@
 export class WordBank {
     constructor() {
         this.bank = new Map();
+
         this.usedWords = new Set();
     }
 

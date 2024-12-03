@@ -1,0 +1,19 @@
+{
+  "name": "hangman-game",
+  "version": "1.0.0",
+  "description": "use js&amp;sass&amp;html to develop the game",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "test": "jest"
+  },
+  "author": "Adi",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
+    "game-server": "^0.0.3",
+    "jest": "^29.7.0"
+  }
+}

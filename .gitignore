@@ -1,0 +1,4 @@
+node_modules
+public/plan/UI/ui.plan.excalidraw
+public/plan/gameLogic/logic.plan.excalidraw
+package-lock.json

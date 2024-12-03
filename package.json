@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "use js&amp;sass&amp;html to develop the game",
   "main": "index.html",
+  "type": "module",
   "scripts": {
     "start": "live-server",
     "test": "jest"

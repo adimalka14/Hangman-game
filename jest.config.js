@@ -1,17 +1,14 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+// jest.config.js
 
-/** @type {import('jest').Config} */
-
-const config = {
-    // Indicates which provider should be used to instrument code for coverage
+export default {
     coverageProvider: "v8",
-    // A map from regular expressions to paths to transformers
     transform: {
         "^.+\\.jsx?$": "babel-jest",
     },
+    testEnvironment: "node",
+    globals: {
+        'babel-jest': {
+            useESM: true,
+        },
+    },
 };
-
-module.exports = config;

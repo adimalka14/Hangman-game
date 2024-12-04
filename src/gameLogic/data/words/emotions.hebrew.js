@@ -1,4 +1,4 @@
-const EMOTIONAL_HEB = [
+const words = [
     "כאב",
     " סבל",
     " אבוד",

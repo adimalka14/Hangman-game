@@ -1,31 +1,38 @@
-export class WordBank {
-    constructor() {
-        this.bank = new Map();
+import { getWordBank } from "./languageSetups.js";
 
-        this.usedWords = new Set();
+export default class WordBank {
+    #bank;
+
+    constructor() {
+        this.#bank = null;
+    }
+
+    async initialize() {
+        this.#bank = await this.#loadWords();
+    }
+
+    async #loadWords() {
+        return getWordBank();
     }
 
     getRandomWord(language, topic) {
-        if (!this.bank.has(language)) {
+        if (!this.#bank.has(language)) {
             return null;
         }
-        const languageMap = this.bank.get(language);
+        const languageMap = this.#bank.get(language);
         if (!languageMap.has(topic)) {
             return null;
         }
 
         const words = languageMap.get(topic);
 
-        if (words.length === this.usedWords.size) {
-            this.usedWords.clear();
+        if (words.length === 0) {
+            return null;
         }
 
-        do{
-            const randomWord = words[Math.floor(Math.random() * words.length)];
-            if (!this.usedWords.has(randomWord)) {
-                this.usedWords.add(randomWord);
-                return randomWord;
-            }
-        }while (true);
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const [randomWord] = words.splice(randomIndex, 1);
+
+        return randomWord;
     }
 }

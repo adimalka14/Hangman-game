@@ -1,4 +1,4 @@
-const ANIMALS_EN = [
+export  const words = [
     "Dog",
     "Puppy",
     "Turtle",

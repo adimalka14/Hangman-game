@@ -1,4 +1,4 @@
-const ANIMALS_HEB = [
+export const words = [
     "כלב",
     "כלבלב",
     "צב",

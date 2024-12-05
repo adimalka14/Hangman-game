@@ -1,0 +1,19 @@
+.characters-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 3px solid yellow;
+
+    div {
+        border: 1px solid white;
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    div:hover {
+        background: white;
+        color: black;
+    }
+}

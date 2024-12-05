@@ -1,0 +1,13 @@
+.random-word {
+    font-size: 35px;
+    display: flex;
+    border: 2px solid red;
+
+    &.rtl {
+        flex-direction: row-reverse;
+    }
+    gap: 10px;
+    .random-word-char {
+        border-bottom: 3px solid white;
+    }
+}

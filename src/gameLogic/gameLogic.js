@@ -31,12 +31,12 @@ export default class GameLogic {
 
     guessLetter(letter) {
         letter = letter.toLowerCase();
-        if(this.#guessedLetters.has(letter)) {
+        if (this.#guessedLetters.has(letter)) {
             return;
         }
 
         this.#guessedLetters.add(letter);
-        if(!this.#word.includes(letter)) {
+        if (!this.#word.includes(letter)) {
             this.#mistakes++;
         }
     }
@@ -53,7 +53,6 @@ export default class GameLogic {
         return maskedWord;
     }
 
-
     isWin() {
         return this.#word === this.getMaskedWord();
     }
@@ -61,5 +60,4 @@ export default class GameLogic {
     isLose() {
         return this.#mistakes >= this.#maxMistakes;
     }
-
 }

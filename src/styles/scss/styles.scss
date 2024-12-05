@@ -1,0 +1,21 @@
+@use 'components/_random-word';
+@use 'components/_characters-options';
+@use 'components/_hangman-picture';
+@use 'components/_result';
+
+body {
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border: 2px solid blue;
+}
+
+.game-board-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}

@@ -1,0 +1,114 @@
+.random-word {
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 2px solid red;
+  padding: 20px;
+  gap: 10px;
+}
+.random-word.rtl {
+  flex-direction: row;
+}
+.random-word.ltr {
+  flex-direction: row-reverse;
+}
+.random-word .random-word-char {
+  border-bottom: 3px solid white;
+}
+
+.characters-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 3px solid yellow;
+}
+.characters-options.rtl {
+  flex-direction: row;
+}
+.characters-options.ltr {
+  flex-direction: row-reverse;
+}
+.characters-options .char-btn {
+  border: 1px solid white;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+.characters-options .char-btn[data-clickable=false] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.characters-options .char-btn[data-color=correct] {
+  background-color: green;
+}
+.characters-options .char-btn[data-color=wrong] {
+  background-color: red;
+}
+.characters-options div:hover {
+  background: white;
+  color: black;
+}
+
+.number-of-attempts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid purple;
+  gap: 20px;
+}
+.number-of-attempts-container .hangman-picture {
+  max-height: 100px;
+  max-width: 100px;
+}
+.number-of-attempts-container .mistakes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  border: 2px solid green;
+  padding: 20px;
+  gap: 10px;
+}
+
+.game-settings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+  padding: 20px;
+  border: 2px solid aqua;
+}
+
+body {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border: 2px solid blue;
+}
+
+h1 {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.game-board-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row-reverse;
+  gap: 50px;
+}
+
+/*# sourceMappingURL=styles.css.map */

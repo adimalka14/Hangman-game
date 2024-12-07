@@ -1,10 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hangman Game</title>
+        <link rel="stylesheet" href="src/styles/css/styles.css" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    </head>
+    <body dir="rtl">
+        <h1>איש תלוי</h1>
+        <div class="game-board-container">
+            <div class="number-of-attempts-container"></div>
+            <div>
+                <div class="game-settings-container">
+                    <div class="language-container"></div>
+                    <div class="topics-container"></div>
+                    <button class="start-button">התחל משחק</button>
+                </div>
+                <div class="word-container"></div>
+            </div>
+            <div class="result-container"></div>
+        </div>
+        <div class="characters-container"></div>
+        <script type="module" src="src/controller.js"></script>
+    </body>
 </html>

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "live-server",
-    "sass:watch": "sass --watch scss/styles.scss:css/styles.css",
+    "sass:watch": "sass --watch src/styles/scss/styles.scss:src/styles/css/styles.css",
     "test": "jest"
   },
   "author": "Adi",
@@ -15,9 +15,10 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
-    "game-server": "^0.0.3",
     "jest": "^29.7.0",
     "jest-html-reporters": "^3.1.7",
+    "live-server": "^1.2.2",
+    "prettier": "^3.4.2",
     "sass": "^1.81.1"
   }
 }

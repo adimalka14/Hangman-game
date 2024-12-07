@@ -1,11 +1,12 @@
 export const LANGUAGE_SETUP = {
     hebrew: {
         language: 'עברית',
-        characters: 'אבגדהוזחטיכלמנסעפצקרשת',
+        characters: 'אבגדהוזחטיכלמנסעפצקרשתךםןףץ',
         topics: {
-            emotions: 'רגשות',
             animals: 'חיות',
+            emotions: 'רגשות',
         },
+        direction: 'rtl',
     },
     english: {
         language: 'English',
@@ -13,29 +14,10 @@ export const LANGUAGE_SETUP = {
         topics: {
             animals: 'Animals',
         },
+        direction: 'ltr',
     },
 };
 
-export async function getWordBank() {
-    const wordBank = new Map();
+export const DEFAULT_LANGUAGE = Object.keys(LANGUAGE_SETUP)[0];
 
-    for (const [languageKey, languageData] of Object.entries(LANGUAGE_SETUP)) {
-        const topicsMap = new Map();
-
-        for (const topicKey of Object.keys(languageData.topics)) {
-            const fileName = `${topicKey}.${languageKey}.js`;
-            try {
-                const {words} = await import(`./data/words/${fileName}`);
-                topicsMap.set(topicKey, words);
-            } catch (error) {
-                console.error(`Error loading file ${fileName}:`, error);
-            }
-        }
-
-        wordBank.set(languageKey, topicsMap);
-    }
-
-    return wordBank;
-}
-
-
+export const DEFAULT_TOPIC = Object.keys(LANGUAGE_SETUP[DEFAULT_LANGUAGE].topics)[0];

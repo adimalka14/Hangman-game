@@ -1,0 +1,9 @@
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    border: 2px solid green;
+    padding: 20px;
+    gap: 10px;
+}

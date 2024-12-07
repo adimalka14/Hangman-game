@@ -1,14 +1,14 @@
-export default class Result{
-    constructor(){
-        this.score = 0;
+export default class Result {
+    constructor() {
+        this.wins = 0;
         this.losses = 0;
     }
 
-    addScore(){
-        this.score++;
+    addScore() {
+        this.wins++;
     }
 
-    addLoss(){
+    addLoss() {
         this.losses++;
     }
 }

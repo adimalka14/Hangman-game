@@ -1,7 +1,8 @@
 @use 'components/_random-word';
 @use 'components/_characters-options';
-@use 'components/_hangman-picture';
+@use 'components/number-of-attempts-container';
 @use 'components/_result';
+@use 'components/_game-settings-container';
 
 body {
     background: black;
@@ -13,9 +14,16 @@ body {
     border: 2px solid blue;
 }
 
+h1 {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
 .game-board-container {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: row-reverse;
+    gap: 50px;
 }

@@ -1,15 +1,35 @@
 .characters-options {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     border: 3px solid yellow;
 
-    div {
+    &.rtl {
+        flex-direction: row;
+    }
+
+    &.ltr {
+        flex-direction: row-reverse;
+    }
+
+    .char-btn {
         border: 1px solid white;
         padding: 10px;
         margin: 10px;
         cursor: pointer;
+
+        &[data-clickable='false'] {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        &[data-color='correct'] {
+            background-color: green;
+        }
+
+        &[data-color='wrong'] {
+            background-color: red;
+        }
     }
 
     div:hover {

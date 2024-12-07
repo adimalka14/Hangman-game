@@ -1,6 +1,6 @@
-export function renderRandomWord(word) {
+export function renderRandomWord(word, direction) {
     const wordDom = `
-        <div class="random-word">
+        <div class="random-word ${direction}">
             ${word
                 .split('')
                 .map((char) => `<span class="random-word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
@@ -36,9 +36,9 @@ export function renderTopicOptions(languageSetup, selectedLanguage) {
     $('.topics-container').html(topicDom);
 }
 
-export function renderCharactersOptions(options) {
+export function renderCharactersOptions(options, direction) {
     const charactersDom = `
-            <div class="characters-options">
+            <div class="characters-options ${direction}">
                 ${options
                     .split('')
                     .map((char) => `<div class="char-btn">${char}</div>`)
@@ -69,4 +69,20 @@ export function renderResult(wins, losses) {
         </div>
     `;
     $('.result-container').html(resultDom);
+}
+
+export function renderCharBtnStatus(letterBtn, isCorrect) {
+    const $letterBtn = $(letterBtn);
+
+    if (isCorrect) {
+        $letterBtn.attr('data-color', 'correct');
+    } else {
+        $letterBtn.attr('data-color', 'wrong');
+    }
+
+    $letterBtn.attr('data-clickable', 'false');
+}
+
+export function lockAllButtons() {
+    $('.char-btn').attr('data-clickable', 'false');
 }

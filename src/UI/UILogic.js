@@ -5,35 +5,43 @@ import {
     renderCharactersOptions,
     renderResult,
     renderMistakesState,
+    renderCharBtnStatus,
+    lockAllButtons,
 } from './components.js';
 import { bindEvents } from './eventHandlers.js';
 
 export const UILogic = (function () {
+    let dir;
+
     function init(languageSetup, defaultLanguage) {
         renderLanguageOptions(languageSetup);
         renderTopicOptions(languageSetup, defaultLanguage);
         bindEvents(languageSetup);
     }
 
-    function startGame(gameState, charactersOptions) {
+    function startGame(gameState, charactersOptions, direction) {
         const { word, mistakes, maxMistakes, result } = gameState;
-        renderRandomWord(word);
-        renderCharactersOptions(charactersOptions);
+        dir = direction;
+        renderRandomWord(word, dir);
+        renderCharactersOptions(charactersOptions, dir);
         renderMistakesState(mistakes, maxMistakes);
         renderResult(result.wins, result.losses);
     }
 
-    function gameInProgress(gameState) {
+    function gameInProgress(gameState, clickedLetter) {
         const { isCorrect, word, mistakes, maxMistakes, result } = gameState;
-        renderRandomWord(word);
+        renderRandomWord(word, dir);
         renderMistakesState(mistakes, maxMistakes);
+        renderCharBtnStatus(clickedLetter, isCorrect);
     }
 
-    function gameFinished(gameState) {
+    function gameFinished(gameState, clickedLetter) {
         const { status, isCorrect, word, mistakes, maxMistakes, result } = gameState;
-        renderRandomWord(word);
+        renderRandomWord(word, dir);
         renderMistakesState(mistakes, maxMistakes);
         renderResult(result.wins, result.losses);
+        renderCharBtnStatus(clickedLetter, isCorrect);
+        lockAllButtons();
     }
 
     return {

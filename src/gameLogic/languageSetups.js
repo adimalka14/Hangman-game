@@ -6,6 +6,7 @@ export const LANGUAGE_SETUP = {
             animals: 'חיות',
             emotions: 'רגשות',
         },
+        direction: 'rtl',
     },
     english: {
         language: 'English',
@@ -13,6 +14,7 @@ export const LANGUAGE_SETUP = {
         topics: {
             animals: 'Animals',
         },
+        direction: 'ltr',
     },
 };
 

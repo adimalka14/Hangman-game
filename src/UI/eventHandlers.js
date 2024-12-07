@@ -5,6 +5,4 @@ export function bindEvents(languageSetup) {
         const selectedLanguage = $(this).val();
         renderTopicOptions(languageSetup, selectedLanguage);
     });
-
-    $('.random-word-char').on('click', function () {});
 }

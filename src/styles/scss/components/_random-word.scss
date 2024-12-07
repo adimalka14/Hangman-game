@@ -1,11 +1,19 @@
 .random-word {
     font-size: 35px;
     display: flex;
+    justify-content: center;
+    align-content: center;
     border: 2px solid red;
+    padding: 20px;
 
     &.rtl {
+        flex-direction: row;
+    }
+
+    &.ltr {
         flex-direction: row-reverse;
     }
+
     gap: 10px;
     .random-word-char {
         border-bottom: 3px solid white;

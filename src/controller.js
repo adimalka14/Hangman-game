@@ -16,22 +16,21 @@ $(document).on('click', '.start-button', async () => {
 
     console.log(`Selected Language: ${selectedLanguage}`);
     console.log('Selected Topic:', selectedTopic);
-    await gameManager.init(selectedLanguage, selectedTopic);
-    const result = gameManager.getCurrentGameState();
-    console.log(result.word);
-    UILogic.startGame(result.word, LANGUAGE_SETUP[selectedLanguage].characters);
+    const gameState = await gameManager.init(selectedLanguage, selectedTopic);
+    console.log(gameState.word);
+    UILogic.startGame(gameState, LANGUAGE_SETUP[selectedLanguage].characters);
 });
 
-window.$(document).on('click', '.char-btn', function () {
+$(document).on('click', '.char-btn', function () {
     console.log('clicked');
     const letter = $(this).text();
     console.log(`Clicked letter: ${letter}`);
 
-    const result = gameManager.guess(letter);
+    const gameState = gameManager.guess(letter);
 
-    if (result.status === 'win' || result.status === 'lose') {
-        UILogic.gameFinished(result.status, result.word, result.mistakes);
+    if (gameState.status === 'win' || gameState.status === 'lose') {
+        UILogic.gameFinished(gameState);
     } else {
-        UILogic.gameInProgress(result.word, result.mistakes);
+        UILogic.gameInProgress(gameState);
     }
 });

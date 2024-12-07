@@ -48,9 +48,17 @@ export function renderCharactersOptions(options) {
     $('.characters-container').html(charactersDom);
 }
 
-export function renderHangmanPicture(status) {
+export function renderMistakesState(mistakes, maxMistakes) {
     const imagePath = `../../public/images/hangman-${'welcome'}.png`;
-    $('.hangman-picture').attr('src', imagePath);
+
+    const mistakesDom = `
+        <img class="hangman-picture" src=${imagePath} alt="hangman" />
+        <div class="mistakes">
+            <span>טעויות : ${mistakes}/${maxMistakes}</span>
+        </div>
+    `;
+
+    $('.number-of-attempts-container').html(mistakesDom);
 }
 
 export function renderResult(wins, losses) {

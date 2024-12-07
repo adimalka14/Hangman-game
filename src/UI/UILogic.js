@@ -3,8 +3,8 @@ import {
     renderLanguageOptions,
     renderRandomWord,
     renderCharactersOptions,
-    renderHangmanPicture,
     renderResult,
+    renderMistakesState,
 } from './components.js';
 import { bindEvents } from './eventHandlers.js';
 
@@ -15,16 +15,26 @@ export const UILogic = (function () {
         bindEvents(languageSetup);
     }
 
-    function startGame(word, charactersOptions, wins = 0, losses = 0) {
+    function startGame(gameState, charactersOptions) {
+        const { word, mistakes, maxMistakes, result } = gameState;
         renderRandomWord(word);
         renderCharactersOptions(charactersOptions);
-        renderHangmanPicture(0);
-        renderResult(wins, losses);
+        renderMistakesState(mistakes, maxMistakes);
+        renderResult(result.wins, result.losses);
     }
 
-    function gameInProgress(word, mistakes) {}
+    function gameInProgress(gameState) {
+        const { isCorrect, word, mistakes, maxMistakes, result } = gameState;
+        renderRandomWord(word);
+        renderMistakesState(mistakes, maxMistakes);
+    }
 
-    function gameFinished(status, word, mistakes) {}
+    function gameFinished(gameState) {
+        const { status, isCorrect, word, mistakes, maxMistakes, result } = gameState;
+        renderRandomWord(word);
+        renderMistakesState(mistakes, maxMistakes);
+        renderResult(result.wins, result.losses);
+    }
 
     return {
         init,

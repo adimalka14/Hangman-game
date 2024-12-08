@@ -8,10 +8,25 @@ body {
     background: black;
     color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
-    border: 2px solid blue;
+    padding: 20px;
+    min-height: 90vh;
+    max-width: 100vw;
+
+    > *:nth-child(1) {
+        flex: 1;
+    }
+
+    > *:nth-child(2) {
+        flex: 12;
+    }
+
+    > *:nth-child(3) {
+        flex: 7;
+    }
 }
 
 h1 {
@@ -23,7 +38,24 @@ h1 {
 .game-board-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: row-reverse;
-    gap: 50px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    min-height: 70%;
+
+    > *:nth-child(1) {
+        flex: 4;
+        height: 100%;
+    }
+
+    > *:nth-child(2) {
+        flex: 4;
+        height: 100%;
+    }
+
+    > *:nth-child(3) {
+        flex: 2;
+        height: 100%;
+    }
 }

@@ -86,3 +86,11 @@ export function renderCharBtnStatus(letterBtn, isCorrect) {
 export function lockAllButtons() {
     $('.char-btn').attr('data-clickable', 'false');
 }
+
+export function renderEndGameMessage(status) {
+    const endGameMessage = status === 'win' ? 'ניצחת' : 'הפסדת';
+    const resultDom = `
+            <span data-status="${status}">${endGameMessage}</span>
+    `;
+    $('.result-container').append(resultDom);
+}

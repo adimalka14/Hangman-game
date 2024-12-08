@@ -1,21 +1,31 @@
-.random-word {
-    font-size: 35px;
+.word-container {
     display: flex;
     justify-content: center;
-    align-content: center;
-    border: 2px solid red;
-    padding: 20px;
+    align-items: center;
+    height: 60%;
+    max-width: 50%;
 
-    &.rtl {
-        flex-direction: row;
-    }
+    .random-word {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
 
-    &.ltr {
-        flex-direction: row-reverse;
-    }
+        &.rtl {
+            flex-direction: row;
+        }
 
-    gap: 10px;
-    .random-word-char {
-        border-bottom: 3px solid white;
+        &.ltr {
+            flex-direction: row-reverse;
+        }
+
+        gap: 10px;
+        .random-word-char {
+            border-bottom: 3px solid white;
+            width: 0.5em;
+            height: 1em;
+            font-size: 4em;
+            text-align: center;
+        }
     }
 }

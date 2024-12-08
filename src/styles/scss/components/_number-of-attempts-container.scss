@@ -2,17 +2,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 3px solid purple;
+    align-items: center;
     gap: 20px;
 
     .hangman-picture {
-        max-height: 100px;
-        max-width: 100px;
+        height: 45%;
+        width: 45%;
     }
 
     .mistakes {
-        display: flex;
-        justify-content: center;
-        align-content: center;
+        font-size: 3em;
     }
 }

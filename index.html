@@ -8,19 +8,25 @@
     </head>
     <body dir="rtl">
         <h1>איש תלוי</h1>
-        <div class="game-board-container">
-            <div class="number-of-attempts-container"></div>
-            <div>
-                <div class="game-settings-container">
-                    <div class="language-container"></div>
-                    <div class="topics-container"></div>
+        <div class="game-board">
+            <div class="status">
+                <img class="hangman-image" src="./public/images/hangman-welcome.png" alt="Hangman" />
+                <div class="attempts"></div>
+            </div>
+            <div class="word-area">
+                <div class="end-message"></div>
+                <div class="word"></div>
+            </div>
+            <div class="info">
+                <div class="settings">
+                    <div class="languages"></div>
+                    <div class="topics"></div>
                     <button class="start-button">התחל משחק</button>
                 </div>
-                <div class="word-container"></div>
+                <div class="result"></div>
             </div>
-            <div class="result-container"></div>
         </div>
-        <div class="characters-container"></div>
+        <div class="keyboard"></div>
         <script type="module" src="src/controller.js"></script>
     </body>
 </html>

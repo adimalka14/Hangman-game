@@ -1,26 +1,21 @@
 export function renderRandomWord(word, direction) {
-    const wordDom = `
-        <div class="random-word ${direction}">
-            ${word
-                .split('')
-                .map((char) => `<span class="random-word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
-                .join('')}
-        </div>
-        `;
-
-    $('.word-container').html(wordDom);
+    const wordDom = word
+        .split('')
+        .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
+        .join('');
+    $('.word').attr('class', `word ${direction}`).html(wordDom);
 }
 
 export function renderLanguageOptions(languageSetup) {
     const languageDom = `
-            <label for="language-select">בחר שפה:</label>
-            <select class="language-select">
-                ${Object.keys(languageSetup)
-                    .map((key) => `<option value="${key}">${languageSetup[key].language}</option>`)
-                    .join('')}
-            </select>
-        `;
-    $('.language-container').html(languageDom);
+        <label for="language-select">בחר שפה:</label>
+        <select id="language-select" class="language-select">
+            ${Object.keys(languageSetup)
+                .map((key) => `<option value="${key}">${languageSetup[key].language}</option>`)
+                .join('')}
+        </select>
+    `;
+    $('.languages').html(languageDom);
 }
 
 export function renderTopicOptions(languageSetup, selectedLanguage) {
@@ -33,64 +28,44 @@ export function renderTopicOptions(languageSetup, selectedLanguage) {
                     .join('')}
             </select>
         `;
-    $('.topics-container').html(topicDom);
+    $('.topics').html(topicDom);
 }
 
 export function renderCharactersOptions(options, direction) {
-    const charactersDom = `
-            <div class="characters-options ${direction}">
-                ${options
-                    .split('')
-                    .map((char) => `<div class="char-btn">${char}</div>`)
-                    .join('')}
-            </div>
-        `;
-    $('.characters-container').html(charactersDom);
+    const charactersDom = options
+        .split('')
+        .map((char) => `<button class="char-btn">${char}</button>`)
+        .join('');
+    $('.keyboard').attr('class', `keyboard ${direction}`).html(charactersDom);
 }
 
 export function renderMistakesState(mistakes, maxMistakes) {
     const imagePath = `../../public/images/hangman-${'welcome'}.png`;
-
     const mistakesDom = `
-        <img class="hangman-picture" src=${imagePath} alt="hangman" />
-        <div class="mistakes">
-            <span>טעויות : ${mistakes}/${maxMistakes}</span>
-        </div>
+        <img class="hangman-image" src="${imagePath}" alt="Hangman" />
+        <div>טעויות: ${mistakes}/${maxMistakes}</div>
     `;
-
-    $('.number-of-attempts-container').html(mistakesDom);
+    $('.status').html(mistakesDom);
 }
 
 export function renderResult(wins, losses) {
     const resultDom = `
-        <div class="result">
-            <span>ניצחונות: ${wins}</span>
-            <span>הפסדים: ${losses}</span>
-        </div>
+        <div>ניצחונות: ${wins}</div>
+        <div>הפסדים: ${losses}</div>
     `;
-    $('.result-container').html(resultDom);
+    $('.result').html(resultDom);
 }
 
 export function renderCharBtnStatus(letterBtn, isCorrect) {
     const $letterBtn = $(letterBtn);
-
-    if (isCorrect) {
-        $letterBtn.attr('data-color', 'correct');
-    } else {
-        $letterBtn.attr('data-color', 'wrong');
-    }
-
-    $letterBtn.attr('data-clickable', 'false');
+    $letterBtn.attr('data-color', isCorrect ? 'correct' : 'wrong').attr('disabled', true);
 }
 
 export function lockAllButtons() {
-    $('.char-btn').attr('data-clickable', 'false');
+    $('.char-btn').attr('disabled', true);
 }
 
 export function renderEndGameMessage(status) {
-    const endGameMessage = status === 'win' ? 'ניצחת' : 'הפסדת';
-    const resultDom = `
-            <span data-status="${status}">${endGameMessage}</span>
-    `;
-    $('.result-container').append(resultDom);
+    const endGameMessage = status === 'win' ? 'ניצחת!' : 'הפסדת!';
+    $('.end-message').text(endGameMessage).attr('data-status', status);
 }

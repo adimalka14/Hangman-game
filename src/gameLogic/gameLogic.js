@@ -1,3 +1,5 @@
+import { LANGUAGE_SETUP } from './languageSetups.js';
+
 export default class GameLogic {
     #word;
     #guessedLetters;
@@ -32,14 +34,20 @@ export default class GameLogic {
         this.#mistakes = 0;
     }
 
-    guessLetter(letter) {
+    guessLetter(letter, language) {
         letter = letter.toLowerCase();
         if (this.#guessedLetters.has(letter)) {
             throw new Error('Letter already guessed');
         }
 
         this.#guessedLetters.add(letter);
-        if (!this.#word.includes(letter)) {
+
+        const specialCharacter = LANGUAGE_SETUP[language]?.specialCharacters?.[letter] ?? null;
+        if (specialCharacter) {
+            this.#guessedLetters.add(specialCharacter);
+        }
+
+        if (!this.#word.includes(letter) && (!specialCharacter || !this.#word.includes(specialCharacter))) {
             this.#mistakes++;
             return false;
         }

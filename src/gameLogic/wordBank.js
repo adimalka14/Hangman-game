@@ -53,6 +53,6 @@ export default class WordBank {
 
         const randomIndex = Math.floor(Math.random() * validWords.length);
         validWords[randomIndex].chosen = true;
-        return validWords[randomIndex].value.trimStart().trimEnd().replace(' ', '-');
+        return validWords[randomIndex].value.trimStart().trimEnd().replaceAll(' ', '-');
     }
 }

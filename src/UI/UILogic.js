@@ -7,6 +7,7 @@ import {
     renderMistakesState,
     renderCharBtnStatus,
     lockAllButtons,
+    renderEndGameMessage,
 } from './components.js';
 import { bindEvents } from './eventHandlers.js';
 
@@ -42,6 +43,7 @@ export const UILogic = (function () {
         renderResult(result.wins, result.losses);
         renderCharBtnStatus(clickedLetter, isCorrect);
         lockAllButtons();
+        renderEndGameMessage(status);
     }
 
     return {

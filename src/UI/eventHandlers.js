@@ -5,4 +5,9 @@ export function bindEvents(languageSetup) {
         const selectedLanguage = $(this).val();
         renderTopicOptions(languageSetup, selectedLanguage);
     });
+
+    $('.start-button').on('click', function () {
+        $('.end-message').addClass('hidden').text('');
+        $('h1').addClass('hidden');
+    });
 }

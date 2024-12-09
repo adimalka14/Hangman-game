@@ -1,0 +1,29 @@
+.status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid greenyellow;
+    height: 1em;
+    width: 100%;
+
+    .hangman-image {
+        height: 70%;
+        border: 2px solid greenyellow;
+        width: 45%;
+        @media screen and (max-width: 600px) {
+            height: 50%;
+            width: 30%;
+        }
+    }
+
+    .attempts {
+        border: 2px solid greenyellow;
+        font-size: 3.5em;
+    }
+
+    @media screen and (max-width: 600px) {
+        flex-direction: row;
+    }
+}

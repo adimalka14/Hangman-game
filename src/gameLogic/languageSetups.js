@@ -1,7 +1,14 @@
 export const LANGUAGE_SETUP = {
     hebrew: {
         language: 'עברית',
-        characters: 'אבגדהוזחטיכלמנסעפצקרשתךםןףץ',
+        characters: 'אבגדהוזחטיכלמנסעפצקרשת',
+        specialCharacters: {
+            כ: 'ך',
+            נ: 'ן',
+            מ: 'ם',
+            צ: 'ץ',
+            פ: 'ף',
+        },
         topics: {
             animals: 'חיות',
             emotions: 'רגשות',

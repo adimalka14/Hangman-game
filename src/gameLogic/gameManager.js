@@ -32,7 +32,7 @@ export default class GameManager {
     }
 
     guess(letter) {
-        const isCorrect = this.#currentGame.guessLetter(letter);
+        const isCorrect = this.#currentGame.guessLetter(letter, this.#settings.getLanguage());
 
         if (this.#currentGame.isWin()) {
             this.#result.addScore();

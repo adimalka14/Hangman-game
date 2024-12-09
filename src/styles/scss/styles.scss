@@ -1,29 +1,74 @@
-@use 'components/_random-word';
-@use 'components/_characters-options';
-@use 'components/number-of-attempts-container';
-@use 'components/_result';
-@use 'components/_game-settings-container';
+@use 'components/_word-area';
+@use 'components/_keyboard';
+@use 'components/_status';
+@use 'components/_info';
 
 body {
     background: black;
     color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     flex-direction: column;
-    border: 2px solid blue;
+    padding: 20px;
+    min-height: 90vh;
+    max-width: 100vw;
+
+    border: 2px solid greenyellow;
+
+    > *:nth-child(1) {
+        flex: 1;
+    }
+
+    > *:nth-child(2) {
+        flex: 10;
+    }
+
+    > *:nth-child(3) {
+        flex: 9;
+    }
 }
 
 h1 {
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-}
-
-.game-board-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row-reverse;
-    gap: 50px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    min-height: 70%;
+    height: 100%;
+    border: 2px solid greenyellow;
+
+    > *:nth-child(1) {
+        flex: 3;
+        height: 100%;
+    }
+
+    > *:nth-child(2) {
+        flex: 5;
+        height: 100%;
+    }
+
+    > *:nth-child(3) {
+        flex: 2;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column-reverse;
+    }
+}
+
+.hidden {
+    display: none;
 }

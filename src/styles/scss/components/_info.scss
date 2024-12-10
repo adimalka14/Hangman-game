@@ -1,8 +1,8 @@
+@use '../utils/_mixins' as *;
+
 .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include center-flex(column);
+
     width: 100%;
     height: 100%;
     gap: 10px;
@@ -10,26 +10,25 @@
     border: 2px solid greenyellow;
 
     .settings {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include center-flex(column);
+
         gap: 10px;
         border: 2px solid greenyellow;
         padding: 20px;
     }
 
     .result {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        @include center-flex(column);
+
         padding: 20px;
         border: 2px solid greenyellow;
         gap: 10px;
     }
+}
 
-    @media screen and (max-width: 600px) {
+// Phone
+@media only screen and (max-width: 800px) {
+    .info {
         font-size: 1em;
         flex-direction: row;
     }

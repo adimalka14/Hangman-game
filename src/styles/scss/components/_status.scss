@@ -1,8 +1,8 @@
+@use '../utils/_mixins' as *;
+
 .status {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include center-flex(column);
+
     gap: 20px;
     border: 2px solid greenyellow;
     height: 1em;
@@ -12,18 +12,26 @@
         height: 70%;
         border: 2px solid greenyellow;
         width: 45%;
-        @media screen and (max-width: 600px) {
-            height: 50%;
-            width: 30%;
-        }
     }
 
     .attempts {
         border: 2px solid greenyellow;
-        font-size: 3.5em;
+        font-size: 4em;
     }
+}
 
-    @media screen and (max-width: 600px) {
+// Phone
+@media only screen and (max-width: 800px) {
+    .status {
         flex-direction: row;
+
+        .hangman-image {
+            height: auto;
+            width: 30%;
+        }
+
+        .attempts {
+            font-size: 3em;
+        }
     }
 }

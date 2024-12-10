@@ -7,13 +7,12 @@
     height: 100%;
     gap: 10px;
     font-size: 2em;
-    border: 2px solid greenyellow;
-
+    border: 1px solid #bababa;
+    border-radius: 10px;
     .settings {
         @include center-flex(column);
 
         gap: 10px;
-        border: 2px solid greenyellow;
         padding: 20px;
     }
 
@@ -21,7 +20,6 @@
         @include center-flex(column);
 
         padding: 20px;
-        border: 2px solid greenyellow;
         gap: 10px;
     }
 }

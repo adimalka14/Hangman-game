@@ -47,8 +47,7 @@ export function renderCharactersOptions(options, direction) {
 }
 
 export function renderMistakesState(mistakes, maxMistakes, picture) {
-    const basePath = window.location.hostname.includes('github.io') ? '/<repo-name>' : '';
-    const imagePath = `${basePath}/public/images/hangman-${picture}.png`;
+    const imagePath = `public/images/hangman-${picture}.png`;
 
     const mistakesDom = `
         <img class="hangman-image" src="${imagePath}" alt="Hangman" />

@@ -4,7 +4,7 @@ export default class Result {
         this.losses = 0;
     }
 
-    addScore() {
+    addWin() {
         this.wins++;
     }
 

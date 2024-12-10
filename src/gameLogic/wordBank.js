@@ -19,7 +19,7 @@ export default class WordBank {
 
     async #loadWords(language, topic) {
         const fileName = `${topic}.${language}.js`;
-        console.log(fileName);
+
         try {
             const { words } = await import(`./data/words/${fileName}`);
             return words.map((word) => ({ value: word.toLowerCase(), chosen: false }));

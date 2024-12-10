@@ -32,10 +32,10 @@ export default class GameManager {
     }
 
     guess(letter) {
-        const isCorrect = this.#currentGame.guessLetter(letter, this.#settings.getLanguage());
+        const isCorrect = this.#currentGame.guessLetter(letter, this.#settings.language);
 
         if (this.#currentGame.isWin()) {
-            this.#result.addScore();
+            this.#result.addWin();
             return this.getCurrentGameState(isCorrect, 'win');
         }
 
@@ -52,14 +52,14 @@ export default class GameManager {
             status,
             isCorrect,
             word: status === 'in-progress' ? this.#currentGame.getMaskedWord() : this.#currentGame.word,
-            mistakes: this.#currentGame.getMistakes(),
-            maxMistakes: this.#currentGame.getMaxMistakes(),
+            mistakes: this.#currentGame.mistakes,
+            maxMistakes: this.#currentGame.maxMistakes,
             result: this.#result,
         };
     }
 
     startNewGame() {
-        const word = this.#wordBank.getRandomWord(this.#settings.getLanguage(), this.#settings.getTopic());
+        const word = this.#wordBank.getRandomWord(this.#settings.language, this.#settings.topic);
 
         if (!word) {
             throw new Error('No words available for the selected language and topic.');

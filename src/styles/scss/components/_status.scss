@@ -4,34 +4,31 @@
     @include center-flex(column);
 
     gap: 20px;
-    border: 2px solid greenyellow;
     height: 1em;
     width: 100%;
 
     .hangman-image {
         height: 70%;
-        border: 2px solid greenyellow;
         width: 45%;
     }
 
     .attempts {
-        border: 2px solid greenyellow;
         font-size: 4em;
     }
 }
 
 // Phone
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .status {
         flex-direction: row;
 
         .hangman-image {
             height: auto;
-            width: 30%;
+            width: 40%;
         }
 
         .attempts {
-            font-size: 3em;
+            font-size: 1.5em;
         }
     }
 }

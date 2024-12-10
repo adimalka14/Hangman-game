@@ -1,27 +1,25 @@
-import Result from "../result.js";
+import Result from '../result.js';
 
-describe("Result", () => {
-
-    test("constructor", () => {
+describe('Result', () => {
+    test('constructor', () => {
         const result = new Result();
-        expect(result.score).toBe(0);
+        expect(result.wins).toBe(0);
         expect(result.losses).toBe(0);
     });
 
-    test("addScore", () => {
+    test('addScore', () => {
         const result = new Result();
-        result.addScore();
-        expect(result.score).toBe(1);
-        result.addScore();
-        expect(result.score).toBe(2);
+        result.addWin();
+        expect(result.wins).toBe(1);
+        result.addWin();
+        expect(result.wins).toBe(2);
     });
 
-    test("addLoss", () => {
+    test('addLoss', () => {
         const result = new Result();
         result.addLoss();
         expect(result.losses).toBe(1);
         result.addLoss();
         expect(result.losses).toBe(2);
     });
-
 });

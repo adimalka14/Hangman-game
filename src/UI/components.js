@@ -1,9 +1,16 @@
 export function renderRandomWord(word, direction) {
-    const wordDom = word
-        .split('')
-        .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
-        .join('');
-    $('.word').attr('class', `word ${direction}`).html(wordDom);
+    const wordDom = `
+        <div class="word-area">
+            <div class="word ${direction}">
+                ${word
+                    .split('')
+                    .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`) // ממפה את האותיות ל-HTML
+                    .join('')} 
+            </div>
+        </div>`;
+
+    $('.word-area').remove();
+    $('.game-board div:first').after(wordDom);
 }
 
 export function renderLanguageOptions(languageSetup) {
@@ -39,30 +46,38 @@ export function renderCharactersOptions(options, direction) {
     $('.keyboard').attr('class', `keyboard ${direction}`).html(charactersDom);
 }
 
-export function renderMistakesState(mistakes, maxMistakes) {
-    const imagePath = `../../public/images/hangman-${'welcome'}.png`;
+export function renderMistakesState(mistakes, maxMistakes, picture) {
+    const basePath = window.location.hostname.includes('github.io') ? '/<repo-name>' : '';
+    const imagePath = `${basePath}/public/images/hangman-${picture}.png`;
+
     const mistakesDom = `
         <img class="hangman-image" src="${imagePath}" alt="Hangman" />
-        <div>טעויות: ${mistakes}/${maxMistakes}</div>
+        <div class="attempts">
+            <div>טעויות: ${mistakes}/${maxMistakes}</div>
+        </div>
     `;
+
     $('.status').html(mistakesDom);
 }
 
 export function renderResult(wins, losses) {
     const resultDom = `
+    <div class="result">
         <div>ניצחונות: ${wins}</div>
         <div>הפסדים: ${losses}</div>
+    </div>
     `;
-    $('.result').html(resultDom);
+    $('.result').remove();
+    $('.info').append(resultDom);
 }
 
 export function renderCharBtnStatus(letterBtn, isCorrect) {
     const $letterBtn = $(letterBtn);
-    $letterBtn.attr('data-color', isCorrect ? 'correct' : 'wrong').attr('disabled', true);
+    $letterBtn.attr('data-color', isCorrect ? 'correct' : 'wrong').attr('data-clickable', false);
 }
 
 export function lockAllButtons() {
-    $('.char-btn').attr('disabled', true);
+    $('.char-btn').attr('data-clickable', false);
 }
 
 export function renderEndGameMessage(status) {

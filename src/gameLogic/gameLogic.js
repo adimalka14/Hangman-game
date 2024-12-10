@@ -16,15 +16,15 @@ export default class GameLogic {
     get word() {
         return this.#word;
     }
-    getGuessedLetters() {
+    get guessedLetters() {
         return Array.from(this.#guessedLetters);
     }
 
-    getMaxMistakes() {
+    get maxMistakes() {
         return this.#maxMistakes;
     }
 
-    getMistakes() {
+    get mistakes() {
         return this.#mistakes;
     }
 

@@ -1,26 +1,25 @@
-export default class Settings{
+export default class Settings {
     #language;
     #topic;
 
-    constructor(language, topic){
+    constructor(language, topic) {
         this.#language = language;
         this.#topic = topic;
     }
 
-    getLanguage(){
+    get language() {
         return this.#language;
     }
 
-    getTopic(){
+    get topic() {
         return this.#topic;
     }
 
-    setLanguage(language){
+    set language(language) {
         this.#language = language;
     }
 
-    setTopic(topic){
+    set topic(topic) {
         this.#topic = topic;
     }
-
 }

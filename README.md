@@ -3,7 +3,7 @@
 A Hangman game built using HTML, SCSS, JavaScript (ES6+), and jQuery, with a strong focus on MVC architecture and Object-Oriented Programming (OOP) for game logic. Includes unit tests with Jest and a structured plan for game logic and UI.
 ---
 ## Live Demo 🌐
-Check out the live demo of the Hangman Game: [Hangman Game Live Demo](https://adimalka14.github.io/Hangman-game/)
+- Check out the live demo of the Hangman Game: [Hangman Game Live Demo](https://adimalka14.github.io/Hangman-game/)
 ---
 ## Features And Technologies Used 🛠️ 🚀
 - **Game Mechanics**: Classic Hangman gameplay with dynamic word generation and mistake tracking.

@@ -1,19 +1,47 @@
 @use '../utils/_mixins' as *;
+@use '../utils/_animations' as *;
+@use '../utils/variables' as *;
 
 .status {
     @include center-flex(column);
 
-    gap: 20px;
+    gap: $default-gap;
     height: 1em;
     width: 100%;
+    position: relative;
 
     .hangman-image {
-        height: 70%;
-        width: 45%;
+        height: auto;
+        width: 80%;
     }
 
     .attempts {
-        font-size: 4em;
+        margin: 40px 0;
+        font-size: 2.5em;
+    }
+}
+
+.endgame-message {
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    text-shadow: $text-shadow;
+    z-index: 10;
+    animation: fade-in 3s ease-in-out;
+
+    &.loop {
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    &.win {
+        color: $win-color;
+    }
+
+    &.lose {
+        color: $lose-color;
     }
 }
 
@@ -29,6 +57,11 @@
 
         .attempts {
             font-size: 1.5em;
+        }
+
+        .endgame-message {
+            font-size: 3rem;
+            top: 90%;
         }
     }
 }

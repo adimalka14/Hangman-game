@@ -27,21 +27,6 @@
   font-size: 6em;
   text-align: center;
 }
-.word-area .end-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  font-size: 7em;
-  font-weight: bold;
-  padding: 20px;
-}
-.word-area .end-message[data-status=win] {
-  color: rgba(38, 135, 205, 0.73);
-}
-.word-area .end-message[data-status=lose] {
-  color: #bf6161;
-}
 
 @media only screen and (max-width: 600px) {
   .word-area {
@@ -52,65 +37,57 @@
     width: 0.5em;
     height: 1em;
   }
-  .word-area .end-message {
-    font-size: 3em;
-  }
 }
 @keyframes correct-animation {
   0% {
-    background-color: #6dbda9;
+    background: rgba(38, 135, 205, 0.7294117647);
     transform: scale(1);
   }
   50% {
     transform: scale(1.2);
+    background: #0c5580;
   }
   100% {
-    background-color: rgba(68, 140, 197, 0.73);
+    background: rgba(38, 135, 205, 0.7294117647);
     transform: scale(1);
   }
 }
 @keyframes wrong-animation {
   0% {
-    background-color: #f49f9d;
+    background: #e15858;
     transform: rotate(0deg);
   }
   50% {
+    background: #d12d2d;
     transform: rotate(10deg);
   }
   75% {
     transform: rotate(-10deg);
   }
   100% {
-    background-color: #a5a5a5;
+    background: #e15858;
     transform: rotate(0deg);
   }
 }
-@keyframes win-animation {
+@keyframes fade-in {
   0% {
-    transform: scale(1);
-    color: #01639f;
     opacity: 0;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
+    transform: translate(-50%, -50%);
   }
   100% {
-    transform: scale(1);
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
-@keyframes lose-animation {
+@keyframes pulse {
   0% {
-    transform: translateY(-20px);
-    color: #e86767;
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
   }
   100% {
-    transform: translateY(-10px);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 .keyboard {
@@ -138,10 +115,10 @@
   height: 5.5em;
   font-size: calc(1vh + 1vw);
   font-weight: bold;
-  border-radius: 10px;
   line-height: 1;
-  border: 1px solid #959595;
-  padding: 10px;
+  border: 1px solid #bababa;
+  border-radius: 10px;
+  padding: 20px;
   margin: 10px;
   cursor: pointer;
 }
@@ -151,7 +128,7 @@
   color: white;
 }
 .keyboard .char-btn[data-color=correct] {
-  background-color: rgba(38, 135, 205, 0.73);
+  background-color: rgba(38, 135, 205, 0.7294117647);
   animation: correct-animation 0.5s ease;
 }
 .keyboard .char-btn[data-color=wrong] {
@@ -160,7 +137,6 @@
 }
 .keyboard div:hover {
   background: white;
-  color: black;
 }
 
 @media only screen and (max-width: 600px) {
@@ -169,6 +145,7 @@
     height: 4em;
     font-size: calc(1vh + 1vw);
     padding: 5px;
+    margin: 4px;
   }
 }
 .status {
@@ -176,16 +153,39 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   height: 1em;
   width: 100%;
+  position: relative;
 }
 .status .hangman-image {
-  height: 70%;
-  width: 45%;
+  height: auto;
+  width: 80%;
 }
 .status .attempts {
-  font-size: 4em;
+  margin: 40px 0;
+  font-size: 2.5em;
+}
+
+.endgame-message {
+  font-weight: bold;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  text-shadow: 0 0 5px black;
+  z-index: 10;
+  animation: fade-in 3s ease-in-out;
+}
+.endgame-message.loop {
+  animation: pulse 2s infinite ease-in-out;
+}
+.endgame-message.win {
+  color: rgba(38, 135, 205, 0.7294117647);
+}
+.endgame-message.lose {
+  color: #e15858;
 }
 
 @media only screen and (max-width: 600px) {
@@ -198,6 +198,10 @@
   }
   .status .attempts {
     font-size: 1.5em;
+  }
+  .status .endgame-message {
+    font-size: 3rem;
+    top: 90%;
   }
 }
 .info {

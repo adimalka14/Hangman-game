@@ -4,7 +4,7 @@ export function renderRandomWord(word, direction) {
             <div class="word ${direction}">
                 ${word
                     .split('')
-                    .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`) // ממפה את האותיות ל-HTML
+                    .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
                     .join('')} 
             </div>
         </div>`;
@@ -29,7 +29,7 @@ export function renderTopicOptions(languageSetup, selectedLanguage) {
     const topics = languageSetup[selectedLanguage].topics;
     const topicDom = `
             <label for="topic-select">בחר תוכן:</label>
-            <select class="topic-select">
+            <select id="topic-select" class="topic-select">
                 ${Object.keys(topics)
                     .map((key) => `<option value="${key}">${topics[key]}</option>`)
                     .join('')}
@@ -81,5 +81,14 @@ export function lockAllButtons() {
 
 export function renderEndGameMessage(status) {
     const endGameMessage = status === 'win' ? 'ניצחת!' : 'הפסדת!';
-    $('.end-message').text(endGameMessage).attr('data-status', status);
+    const $status = $('.status');
+    const $endgameMessage = $(`<div class="endgame-message">${endGameMessage}</div>`);
+
+    $status.append($endgameMessage);
+
+    $endgameMessage.addClass(status);
+
+    setTimeout(() => {
+        $endgameMessage.addClass('loop');
+    }, 3000);
 }

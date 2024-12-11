@@ -2,7 +2,7 @@
 @use 'components/_keyboard';
 @use 'components/_status';
 @use 'components/_info';
-@use 'utils/_consts';
+@use 'utils/variables';
 @use 'utils/_mixins' as *;
 
 body {

@@ -24,8 +24,8 @@
 .endgame-message {
     font-weight: bold;
     position: absolute;
-    top: 60%;
-    left: 50%;
+    top: 90%;
+    left: 170%;
     transform: translate(-50%, -50%);
     font-size: 4rem;
     text-shadow: $text-shadow;
@@ -61,7 +61,8 @@
 
         .endgame-message {
             font-size: 3rem;
-            top: 90%;
+            top: -15%;
+            left: 50%;
         }
     }
 }

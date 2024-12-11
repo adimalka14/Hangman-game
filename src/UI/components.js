@@ -61,10 +61,12 @@ export function renderMistakesState(mistakes, maxMistakes, picture) {
 
 export function renderResult(wins, losses) {
     const resultDom = `
+<div class="result-container">
     <div class="result">
         <div>ניצחונות: ${wins}</div>
         <div>הפסדים: ${losses}</div>
     </div>
+</div>
     `;
     $('.result').remove();
     $('.info').append(resultDom);

@@ -14,12 +14,9 @@ $(document).ready(() => {
 $(document).on('click', '.start-button', async () => {
     const selectedLanguage = $('.language-select').val();
     const selectedTopic = $('.topic-select').val();
-
-    console.log(`Selected Language: ${selectedLanguage}`);
-    console.log('Selected Topic:', selectedTopic);
     const gameState = await gameManager.init(selectedLanguage, selectedTopic);
-    console.log(gameState.word);
     const { characters } = LANGUAGE_SETUP[selectedLanguage];
+
     direction = LANGUAGE_SETUP[selectedLanguage].direction;
     UILogic.startGame(gameState, characters, direction);
 });
@@ -29,9 +26,8 @@ $(document).on('click', '.char-btn', function () {
         return;
     }
 
-    console.log('clicked');
     const letter = $(this).text();
-    console.log(`Clicked letter: ${letter}`);
+
     try {
         const gameState = gameManager.guess(letter);
         if (gameState.status === 'win' || gameState.status === 'lose') {

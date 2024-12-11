@@ -14,20 +14,36 @@
     .settings {
         @include center-flex(column);
 
+        width: 100%;
         gap: $default-gap;
-        padding: $default-padding;
+
+        > .selections {
+            text-align: right;
+            gap: $default-gap;
+            white-space: nowrap;
+        }
+
+        .start-button {
+            align-self: center;
+            text-align: center;
+        }
     }
 
-    .result {
+    .result-container {
         @include center-flex(column);
-
         padding: $default-padding;
         gap: $default-gap;
+
+        .result {
+            text-align: right;
+            gap: $default-gap;
+            white-space: nowrap;
+        }
     }
 }
 
 // Phone
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .info {
         font-size: 1em;
         flex-direction: row;

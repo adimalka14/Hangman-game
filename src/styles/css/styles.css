@@ -26,6 +26,7 @@
   height: 1em;
   font-size: 6em;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -36,6 +37,8 @@
     font-size: 3em;
     width: 0.5em;
     height: 1em;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 @keyframes correct-animation {
@@ -170,8 +173,8 @@
 .endgame-message {
   font-weight: bold;
   position: absolute;
-  top: 60%;
-  left: 50%;
+  top: 90%;
+  left: 170%;
   transform: translate(-50%, -50%);
   font-size: 4rem;
   text-shadow: 0 0 5px black;
@@ -201,7 +204,8 @@
   }
   .status .endgame-message {
     font-size: 3rem;
-    top: 90%;
+    top: -15%;
+    left: 50%;
   }
 }
 .info {
@@ -221,10 +225,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
-  padding: 20px;
 }
-.info .result {
+.info .settings > .selections {
+  text-align: right;
+  gap: 10px;
+  white-space: nowrap;
+}
+.info .settings .start-button {
+  align-self: center;
+  text-align: center;
+}
+.info .result-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,8 +245,13 @@
   padding: 20px;
   gap: 10px;
 }
+.info .result-container .result {
+  text-align: right;
+  gap: 10px;
+  white-space: nowrap;
+}
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   .info {
     font-size: 1em;
     flex-direction: row;

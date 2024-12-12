@@ -250,6 +250,15 @@
 .info .button {
   align-self: center;
   text-align: center;
+  border: 1px solid #e1e1e1;
+  border-radius: 1px;
+}
+.info .reset-button {
+  background: #e15858;
+  color: white;
+}
+.info .reset-button:hover {
+  background: #d12d2d;
 }
 
 @media only screen and (max-width: 600px) {

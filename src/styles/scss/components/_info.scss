@@ -39,6 +39,17 @@
     .button {
         align-self: center;
         text-align: center;
+        border: $border-thickness solid $btn-bg-color;
+        border-radius: $border-thickness;
+    }
+
+    .reset-button {
+        background: $lose-color;
+        color: white;
+
+        &:hover {
+            background: $lose-highlight;
+        }
     }
 }
 

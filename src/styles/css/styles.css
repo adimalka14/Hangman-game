@@ -213,19 +213,22 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  align-items: stretch;
+  border: 1px solid #bababa;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   gap: 10px;
   font-size: 2em;
-  border: 1px solid #bababa;
-  border-radius: 10px;
 }
 .info .settings {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  flex: 1;
+  border: 1px solid #bababa;
+  border-radius: 10px;
   gap: 10px;
 }
 .info .settings > .selections {
@@ -233,22 +236,24 @@
   gap: 10px;
   white-space: nowrap;
 }
-.info .settings .start-button {
-  align-self: center;
-  text-align: center;
-}
 .info .result-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 20px;
+  flex: 1;
   gap: 10px;
+  border: 1px solid #bababa;
+  border-radius: 10px;
 }
 .info .result-container .result {
   text-align: right;
   gap: 10px;
   white-space: nowrap;
+}
+.info .button {
+  align-self: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

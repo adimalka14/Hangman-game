@@ -5,13 +5,12 @@ import { LANGUAGE_SETUP, DEFAULT_LANGUAGE, DEFAULT_TOPIC } from './gameLogic/lan
 let gameManager;
 let direction;
 
-$(document).ready(() => {
+function initEnvironment() {
     gameManager = new GameManager();
-
     UILogic.init(LANGUAGE_SETUP, DEFAULT_LANGUAGE);
-});
+}
 
-$(document).on('click', '.start-button', async () => {
+async function startGame() {
     const selectedLanguage = $('.language-select').val();
     const selectedTopic = $('.topic-select').val();
     const gameState = await gameManager.init(selectedLanguage, selectedTopic);
@@ -19,6 +18,19 @@ $(document).on('click', '.start-button', async () => {
 
     direction = LANGUAGE_SETUP[selectedLanguage].direction;
     UILogic.startGame(gameState, characters, direction);
+}
+
+$(document).ready(() => {
+    initEnvironment();
+});
+
+$(document).on('click', '.start-button', async () => {
+    await startGame();
+});
+
+$(document).on('click', '.reset-button', async () => {
+    initEnvironment();
+    await startGame();
 });
 
 $(document).on('click', '.char-btn', function () {

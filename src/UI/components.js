@@ -66,9 +66,10 @@ export function renderResult(wins, losses) {
         <div>ניצחונות: ${wins}</div>
         <div>הפסדים: ${losses}</div>
     </div>
+    <button class="reset-button">אפס משחק</button>
 </div>
     `;
-    $('.result').remove();
+    $('.result-container').remove();
     $('.info').append(resultDom);
 }
 

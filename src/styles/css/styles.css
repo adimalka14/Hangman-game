@@ -227,8 +227,6 @@
   align-items: center;
   flex-direction: column;
   flex: 1;
-  border: 1px solid #bababa;
-  border-radius: 10px;
   gap: 10px;
 }
 .info .settings > .selections {
@@ -243,8 +241,6 @@
   flex-direction: column;
   flex: 1;
   gap: 10px;
-  border: 1px solid #bababa;
-  border-radius: 10px;
 }
 .info .result-container .result {
   text-align: right;

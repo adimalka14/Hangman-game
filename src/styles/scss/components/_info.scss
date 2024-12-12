@@ -15,9 +15,6 @@
         @include center-flex(column);
         flex: 1;
 
-        border: $border-thickness solid $border-color;
-        border-radius: $border-radius;
-
         gap: $default-gap;
 
         > .selections {
@@ -31,8 +28,6 @@
         @include center-flex(column);
         flex: 1;
         gap: $default-gap;
-        border: $border-thickness solid $border-color;
-        border-radius: $border-radius;
 
         .result {
             text-align: right;

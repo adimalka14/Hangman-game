@@ -1,95 +1,12 @@
-@use 'components/_word-area';
-@use 'components/_keyboard';
-@use 'components/_status';
-@use 'components/_info';
 @use 'utils/variables';
-@use 'utils/_mixins' as *;
+@use 'utils/mixins';
+@use 'utils/animations';
 
-body {
-    @include center-flex(column);
-    flex-wrap: wrap;
-
-    padding: 20px;
-    min-height: 90vh;
-    max-width: 100vw;
-    background: #ededed;
-    color: black;
-
-    > *:nth-child(1) {
-        flex: 1;
-    }
-
-    > *:nth-child(2) {
-        flex: 10;
-    }
-
-    > *:nth-child(3) {
-        flex: 9;
-    }
-
-    @media only screen and (max-width: 600px) {
-        > *:nth-child(1) {
-            flex: 1;
-        }
-
-        > *:nth-child(2) {
-            flex: 13;
-        }
-
-        > *:nth-child(3) {
-            flex: 6;
-        }
-    }
-}
-
-h1 {
-    @include center-flex();
-
-    font-weight: bold;
-    font-size: 3em;
-}
-
-.game-board {
-    @include center-flex(row-reverse);
-    flex-wrap: wrap-reverse;
-
-    width: 100%;
-    min-height: 70%;
-    height: 100%;
-
-    > *:nth-child(1) {
-        flex: 3;
-        height: 100%;
-    }
-
-    > *:nth-child(2) {
-        flex: 5;
-        height: 100%;
-    }
-
-    > *:nth-child(3) {
-        flex: 2;
-        height: 100%;
-    }
-
-    @media only screen and (max-width: 600px) {
-        flex-direction: column-reverse;
-        > *:nth-child(1) {
-            flex: 2;
-            height: 100%;
-        }
-
-        > *:nth-child(2) {
-            flex: 7;
-            height: 100%;
-        }
-
-        > *:nth-child(3) {
-            flex: 3;
-            height: 80%;
-        }
-    }
-}
+@use 'components/word-area';
+@use 'components/keyboard';
+@use 'components/status';
+@use 'components/info';
+@use 'components/layout';
 
 .hidden {
     display: none;

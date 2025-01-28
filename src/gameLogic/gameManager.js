@@ -17,6 +17,10 @@ export default class GameManager {
     }
 
     async init(language = 'hebrew', topic = 'animals') {
+        if (this.#currentGame !== null && !this.#currentGame.isWin() && !this.#currentGame.isLose()) {
+            this.#result.addLoss();
+        }
+
         this.#settings = new Settings(language, topic);
         this.#currentGame = new GameLogic();
         await this.#wordBank.initialize(language, topic);
@@ -58,13 +62,13 @@ export default class GameManager {
         };
     }
 
-    startNewGame() {
-        const word = this.#wordBank.getRandomWord(this.#settings.language, this.#settings.topic);
-
-        if (!word) {
-            throw new Error('No words available for the selected language and topic.');
-        }
-
-        this.#currentGame.startNewGame(word);
-    }
+    // startNewGame() {
+    //     const word = this.#wordBank.getRandomWord(this.#settings.language, this.#settings.topic);
+    //
+    //     if (!word) {
+    //         throw new Error('No words available for the selected language and topic.');
+    //     }
+    //
+    //     this.#currentGame.startNewGame(word);
+    // }
 }

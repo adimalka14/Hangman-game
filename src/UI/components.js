@@ -49,24 +49,18 @@ export function renderCharactersOptions(options, direction) {
 export function renderMistakesState(mistakes, maxMistakes, picture) {
     const imagePath = `public/images/hangman-${picture}.png`;
 
-    const mistakesDom = `
-        <img class="hangman-image" src="${imagePath}" alt="Hangman" />
-        <div class="attempts">
-            <div>טעויות: ${mistakes}/${maxMistakes}</div>
-        </div>
-    `;
-
-    $('.status').html(mistakesDom);
+    $('.hangman-image img').attr('src', imagePath);
+    $('.attempts').html(`טעויות: <div>${mistakes}/${maxMistakes} </div>`);
 }
 
 export function renderResult(wins, losses) {
     const resultDom = `
 <div class="result-container">
     <div class="result">
-        <div>ניצחונות: ${wins}</div>
-        <div>הפסדים: ${losses}</div>
+        <div>תוצאה:</div>
+        <div>${wins}/${wins + losses}</div>
     </div>
-    <button class="reset-button">אפס משחק</button>
+    <button class="reset-button">אפס תוצאה</button>
 </div>
     `;
     $('.result-container').remove();
@@ -94,4 +88,8 @@ export function renderEndGameMessage(status) {
     setTimeout(() => {
         $endgameMessage.addClass('loop');
     }, 3000);
+}
+
+export function clearEndGameMessage() {
+    $('.endgame-message').remove();
 }

@@ -9,5 +9,6 @@ export function bindEvents(languageSetup) {
     $('.start-button').on('click', function () {
         $('.end-message').addClass('hidden').text('');
         $('h1').addClass('hidden');
+        $('.attempts').removeClass('hidden');
     });
 }

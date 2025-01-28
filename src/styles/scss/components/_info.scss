@@ -30,6 +30,7 @@
         gap: $default-gap;
 
         .result {
+            @include center-flex(row);
             text-align: right;
             gap: $default-gap;
             white-space: nowrap;

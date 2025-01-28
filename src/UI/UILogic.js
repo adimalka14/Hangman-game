@@ -8,6 +8,7 @@ import {
     renderCharBtnStatus,
     lockAllButtons,
     renderEndGameMessage,
+    clearEndGameMessage,
 } from './components.js';
 import { bindEvents } from './eventHandlers.js';
 
@@ -27,6 +28,7 @@ export const UILogic = (function () {
         renderCharactersOptions(charactersOptions, dir);
         renderMistakesState(mistakes, maxMistakes, mistakes);
         renderResult(result.wins, result.losses);
+        clearEndGameMessage();
     }
 
     function gameInProgress(gameState, clickedLetter) {

@@ -61,14 +61,4 @@ export default class GameManager {
             result: this.#result,
         };
     }
-
-    // startNewGame() {
-    //     const word = this.#wordBank.getRandomWord(this.#settings.language, this.#settings.topic);
-    //
-    //     if (!word) {
-    //         throw new Error('No words available for the selected language and topic.');
-    //     }
-    //
-    //     this.#currentGame.startNewGame(word);
-    // }
 }

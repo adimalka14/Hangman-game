@@ -21,7 +21,7 @@ export default class WordBank {
         const fileName = `${topic}.${language}.js`;
 
         try {
-            const { words } = await import(`./data/words/${fileName}`);
+            const { words } = await import(`/public/data/words/${fileName}`);
             return words.map((word) => ({ value: word.toLowerCase(), chosen: false }));
         } catch (error) {
             console.error(`Error loading file ${fileName}:`, error);

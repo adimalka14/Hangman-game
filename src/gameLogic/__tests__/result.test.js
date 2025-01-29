@@ -1,4 +1,4 @@
-import Result from '../result.js';
+import Result from '../Result.js';
 
 describe('Result', () => {
     test('constructor', () => {

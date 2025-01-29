@@ -1,13 +1,14 @@
 import { UILogic } from './UI/UILogic.js';
-import GameManager from './gameLogic/gameManager.js';
-import { LANGUAGE_SETUP, DEFAULT_LANGUAGE, DEFAULT_TOPIC } from './gameLogic/languageSetups.js';
+import GameManager from './gameLogic/GameManager.js';
+import { LANGUAGE_SETUP, DEFAULT_LANGUAGE } from './gameLogic/languageSetups.js';
+import { GAME_STATUS } from './gameLogic/consts.js';
 
 let gameManager;
 let direction;
 
-function initEnvironment() {
+function initEnvironment(languageSetup = LANGUAGE_SETUP, defaultLanguage = DEFAULT_LANGUAGE) {
     gameManager = new GameManager();
-    UILogic.init(LANGUAGE_SETUP, DEFAULT_LANGUAGE);
+    UILogic.init(languageSetup, defaultLanguage);
 }
 
 async function startGame() {
@@ -24,9 +25,7 @@ $(document).ready(() => {
     initEnvironment();
 });
 
-$(document).on('click', '.start-button', async () => {
-    await startGame();
-});
+$(document).on('click', '.start-button', startGame);
 
 $(document).on('click', '.reset-button', async () => {
     initEnvironment();
@@ -38,11 +37,11 @@ $(document).on('click', '.char-btn', function () {
         return;
     }
 
-    const letter = $(this).text();
-
     try {
+        const letter = $(this).text();
         const gameState = gameManager.guess(letter);
-        if (gameState.status === 'win' || gameState.status === 'lose') {
+
+        if (gameState.status === GAME_STATUS.WIN || gameState.status === GAME_STATUS.LOSE) {
             UILogic.gameFinished(gameState, this);
         } else {
             UILogic.gameInProgress(gameState, this);

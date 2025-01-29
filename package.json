@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "live-server",
+    "sass": "sass src/styles/scss/styles.scss:src/styles/css/styles.css",
     "sass:watch": "sass --watch src/styles/scss/styles.scss:src/styles/css/styles.css",
     "test": "jest"
   },

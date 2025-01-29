@@ -1,4 +1,4 @@
-import { renderTopicOptions } from './components.js';
+import { renderTopicOptions } from './renders.js';
 
 export function bindEvents(languageSetup) {
     $('.language-select').on('change', function () {

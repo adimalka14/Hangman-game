@@ -1,8 +1,8 @@
 // Colors
 $text-color: black;
 $neutral-color: #a5a5a5;
-$win-color: #2687cdba;
-$win-highlight: #0c5580;
+$win-color: rgba(38, 141, 205, 0.79);
+$win-highlight: rgba(25, 112, 166, 0.72);
 $lose-color: #e15858;
 $lose-highlight: #d12d2d;
 $border-color: #bababa;
@@ -17,7 +17,7 @@ $border-thickness: 1px;
 $default-gap: 10px;
 
 // button colors
-$btn-bg-color: #e1e1e1;
+$btn-bg-color: #2687cdba;
 $btn-border-color: #959595;
 $btn-hover-bg-color: white;
 $btn-not-clickable-color: #a5a5a5;

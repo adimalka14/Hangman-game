@@ -1,13 +1,21 @@
 @use '../utils/_mixins' as *;
 @use '../utils/variables' as *;
 
-.word-area {
+.random-word {
     @include center-flex(column);
+    width: 100%;
+    height: 100%;
+}
+
+.word-area {
+    @include center-flex;
+    flex-wrap: wrap;
+    gap: 0;
 
     .word {
         @include center-flex;
 
-        height: 70%;
+        height: fit-content;
         max-width: 100%;
         padding: $default-padding;
         gap: $default-gap;
@@ -27,6 +35,10 @@
             font-size: 6em;
             text-align: center;
             padding-bottom: 5px;
+
+            &[data-missing='true'] {
+                color: $lose-color;
+            }
         }
     }
 }
@@ -34,8 +46,6 @@
 // Phone
 @media only screen and (max-width: 600px) {
     .word-area {
-        flex-direction: row;
-
         .word {
             .word-char {
                 font-size: 3em;

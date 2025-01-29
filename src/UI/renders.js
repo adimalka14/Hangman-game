@@ -1,15 +1,29 @@
-export function renderRandomWord(word, direction) {
+export function renderRandomWord(word, direction, wordStatus = undefined) {
     const wordDom = `
+    <div class="random-word">
         <div class="word-area">
-            <div class="word ${direction}">
-                ${word
-                    .split('')
-                    .map((char) => `<span class="word-char">${char !== '_' ? char : '&nbsp;'}</span>`)
-                    .join('')} 
-            </div>
-        </div>`;
+            ${word
+                .split('-')
+                .map(
+                    (w, i) => `
+                    <div class="word ${direction}">
+                        ${w
+                            .split('')
+                            .map((char, j) => {
+                                const isMissing = wordStatus ? !wordStatus[i][j] : false;
+                                return `<span class="word-char" ${isMissing ? 'data-missing="true"' : ''}>
+                                    ${char !== '_' ? char : '&nbsp;'}
+                                </span>`;
+                            })
+                            .join('')}
+                    </div>
+                `
+                )
+                .join('')}
+        </div>
+    </div>`;
 
-    $('.word-area').remove();
+    $('.random-word').remove();
     $('.game-board div:first').after(wordDom);
 }
 
@@ -60,7 +74,7 @@ export function renderResult(wins, losses) {
         <div>תוצאה:</div>
         <div>${wins}/${wins + losses}</div>
     </div>
-    <button class="reset-button">אפס תוצאה</button>
+    <button class="reset-button btn">אפס תוצאה</button>
 </div>
     `;
     $('.result-container').remove();
@@ -83,11 +97,14 @@ export function renderEndGameMessage(status) {
 
     $status.append($endgameMessage);
 
+    $('body').addClass(`${status}-background`);
+
     $endgameMessage.addClass(status);
 
     setTimeout(() => {
         $endgameMessage.addClass('loop');
-    }, 3000);
+        $('body').removeClass(`${status}-background`);
+    }, 1500);
 }
 
 export function clearEndGameMessage() {

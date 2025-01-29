@@ -1,4 +1,4 @@
-import GameLogic from '../gameLogic.js';
+import GameLogic from '../GameLogic.js';
 
 describe('GameLogic Class', () => {
     let game;

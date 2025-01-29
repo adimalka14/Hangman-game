@@ -1,7 +1,7 @@
 import WordBank from '../WordBank.js';
 
 jest.mock(
-    '../data/words/animals.hebrew.js',
+    '/public/data/words/animals.hebrew.js',
     () => ({
         words: ['כלב', 'חתול', 'אריה'],
     }),
@@ -9,7 +9,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../data/words/animals.english.js',
+    '/public/data/words/animals.english.js',
     () => ({
         words: ['Dog', 'Cat', 'Lion'],
     }),
@@ -17,7 +17,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../data/words/empty.hebrew.js',
+    '/public/data/words/empty.hebrew.js',
     () => ({
         words: [],
     }),
@@ -25,7 +25,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../data/words/missing.hebrew.js',
+    '/public/data/words/missing.hebrew.js',
     () => {
         throw new Error('File not found');
     },

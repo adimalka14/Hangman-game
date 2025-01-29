@@ -1,5 +1,6 @@
 import GameManager from '../GameManager.js';
-import  WordBank  from '../WordBank.js';
+import WordBank from '../WordBank.js';
+import { GAME_STATUS } from '../consts.js';
 
 jest.mock('../WordBank.js');
 
@@ -47,18 +48,18 @@ describe('GameManager', () => {
         }
 
         const result = gameManager.guess('dummy');
-        expect(result.status).toBe('win');
+        expect(result.status).toBe(GAME_STATUS.WIN);
     });
 
     test('should detect a loss', () => {
         const guesses = 'bdefghijk';
         for (let i = 0; i < 9; i++) {
-             const result = gameManager.guess(guesses[i]);
-             expect(result.status).toBe('in-progress');
-             expect(result.mistakes).toBe(i + 1);
+            const result = gameManager.guess(guesses[i]);
+            expect(result.status).toBe(GAME_STATUS.IN_PROGRESS);
+            expect(result.mistakes).toBe(i + 1);
         }
 
         const result = gameManager.guess('l');
-        expect(result.status).toBe('lose');
+        expect(result.status).toBe(GAME_STATUS.LOSE);
     });
 });

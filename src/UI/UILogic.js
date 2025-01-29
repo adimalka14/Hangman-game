@@ -9,7 +9,7 @@ import {
     lockAllButtons,
     renderEndGameMessage,
     clearEndGameMessage,
-} from './components.js';
+} from './renders.js';
 import { bindEvents } from './eventHandlers.js';
 
 export const UILogic = (function () {
@@ -39,8 +39,8 @@ export const UILogic = (function () {
     }
 
     function gameFinished(gameState, clickedLetter) {
-        const { status, isCorrect, word, mistakes, maxMistakes, result } = gameState;
-        renderRandomWord(word, dir);
+        const { status, isCorrect, word, wordStatus, mistakes, maxMistakes, result } = gameState;
+        renderRandomWord(word, dir, wordStatus);
         renderMistakesState(mistakes, maxMistakes, status);
         renderResult(result.wins, result.losses);
         renderCharBtnStatus(clickedLetter, isCorrect);

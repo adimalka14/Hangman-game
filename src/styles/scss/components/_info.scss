@@ -4,8 +4,6 @@
 .info {
     @include center-flex(column);
     align-items: stretch;
-    border: $border-thickness solid $border-color;
-    border-radius: $border-radius;
     width: 100%;
     height: 100%;
     gap: $default-gap;
@@ -21,6 +19,18 @@
             text-align: right;
             gap: $default-gap;
             white-space: nowrap;
+
+            select {
+                appearance: none;
+                border: 2px solid $btn-bg-color;
+                border-radius: 5px;
+                padding: 8px 12px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: white;
+                width: 50%;
+                height: fit-content;
+            }
         }
     }
 
@@ -37,26 +47,32 @@
         }
     }
 
-    .button {
+    .btn {
         align-self: center;
         text-align: center;
-        border: $border-thickness solid $btn-bg-color;
-        border-radius: $border-thickness;
+        border: $border-thickness solid transparent;
+        border-radius: $border-radius;
+        background: $btn-bg-color;
+        color: white;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+            transform: scale(1.2);
+        }
     }
 
     .reset-button {
         background: $lose-color;
-        color: white;
-
-        &:hover {
-            background: $lose-highlight;
-        }
     }
 }
 
 // Phone
 @media only screen and (max-width: 600px) {
     .info {
+        border: $border-thickness solid $border-color;
+        border-radius: $border-radius;
         font-size: 1em;
         flex-direction: row;
     }
